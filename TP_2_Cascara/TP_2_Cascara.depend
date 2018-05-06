@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1525633019 source:c:\users\arleyzohan\desktop\tp2--estructuras-master\tp_2_cascara\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"funciones.h"
+
+1525633612 source:c:\users\arleyzohan\desktop\tp2--estructuras-master\tp_2_cascara\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1525634312 c:\users\arleyzohan\desktop\tp2--estructuras-master\tp_2_cascara\funciones.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
