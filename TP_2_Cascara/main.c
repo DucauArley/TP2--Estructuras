@@ -18,8 +18,9 @@ int main()
         printf("1- Agregar persona\n");
         printf("2- Borrar persona\n");
         printf("3- Imprimir lista ordenada por  nombre\n");
-        printf("4- Imprimir grafico de edades\n\n");
-        printf("5- Salir\n");
+        printf("4- Imprimir grafico de edades\n");
+        printf("5- Guardar las personas en archivo\n");
+        printf("6- Salir\n");
 
         scanf("%d",&opcion);
 
@@ -27,23 +28,29 @@ int main()
         {
             case 1:
                 system("cls");
-                agregarPersona(gente, tam);
+                agregarPersona(&gente, tam);
                 break;
             case 2:
                 system("cls");
-                borrarPersona(gente, tam);
+                borrarPersona(&gente, tam);
                 break;
             case 3:
                 system("cls");
-                listar(gente, tam);
+                listar(&gente, tam);
                 break;
             case 4:
                 system("cls");
-                grafico(gente, tam);
+                grafico(&gente, tam);
                 break;
             case 5:
+                system("cls");
+                archivoPersonas(&gente, tam);
+                break;
+            case 6:
                 seguir = 'n';
                 break;
+            default:
+                printf("El numero ingresado es incorrecto");
         }
     }
 

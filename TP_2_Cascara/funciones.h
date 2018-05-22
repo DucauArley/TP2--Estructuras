@@ -16,42 +16,42 @@ typedef struct {
  * \param lista: el array se pasa como parametro.
  * \return Devuelve el indice libre.
  */
-int ObtenerEspacioLibre(EPersona [], int);
+int ObtenerEspacioLibre(EPersona*, int);
 /**
  * \brief Obtiene el indice que coincide con el dni pasado por parametro.
  * \param lista: el array se pasa como parametro.
  * \param dni: el dni a ser buscado en el array.
  * \return Devuelve el indice donde se encuentra el dni.
  */
-int BuscarPorDni(EPersona [], int , int);
+int BuscarPorDni(EPersona*, int , int);
 
 /**
  * \brief Cambia el estado de las personas a 0 (vacio).
  * \param lista: el array se pasa como parametro.
  * \param tam: el tamaño del array.
  */
-void inicializarPersonas(EPersona [], int);
+void inicializarPersonas(EPersona*, int);
 
 /**
  * \brief Agrega una estructura al array de estructuras.
  * \param lista: el array se pasa como parametro.
  * \param tam: el tamaño del array.
  */
-void agregarPersona(EPersona [], int);
+void agregarPersona(EPersona*, int);
 
 /**
  * \brief Borra una estructura al array de estructuras.
  * \param lista: el array se pasa como parametro.
  * \param tam: el tamaño del array.
  */
-void borrarPersona(EPersona [], int);
+void borrarPersona(EPersona*, int);
 
 /**
  * \brief Muestra todas las estructuras en orden alfabetico.
  * \param lista: el array se pasa como parametro.
  * \param tam: el tamaño del array.
  */
-void listar(EPersona [], int);
+void listar(EPersona*, int);
 
 /**
  * \brief Muestra un grafico de las edades menores a 18, entre 19 y 35 y mayores a 35.
@@ -59,20 +59,23 @@ void listar(EPersona [], int);
  * \param tam: el tamaño del array.
  */
 
-void grafico(EPersona [], int);
+void grafico(EPersona*, int);
 
 /**
  * \brief Imprime una variable del array.
  * \param lista: una variable del array se pasa como parametro.
  */
-void mostrarPersona(EPersona);
+void mostrarPersona(EPersona*);
 
 /**
  * \brief Imprime varias variables del array
  * \param lista: el array se pasa como parametro
  * \param tam: el tamaño del array
  */
-void mostrarPersonas(EPersona [], int);
+void mostrarPersonas(EPersona*, int);
+
+
+void archivoPersonas(EPersona*, int);
 
 /**
  * \brief Verifica si el valor recibido es numerico.

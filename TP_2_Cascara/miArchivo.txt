@@ -1,0 +1,49 @@
+Nombre: carlos
+DNI: 200
+Edad: 34
+
+
+Nombre: marcos
+DNI: 343
+Edad: 34
+
+
+Nombre: riquelme
+DNI: 232
+Edad: 34
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -11,25 +11,25 @@ typedef struct {
 
 }EPersona;
 
-void inicializarPersonas(EPersona lista[], int tam)
+void inicializarPersonas(EPersona* lista, int tam)
 {
     int i;
 
     for(i=0;i<tam;i++)
     {
-        lista[i].estado = 0;
+        (lista + i)->estado = 0;
     }
 
 }
 
-int ObtenerEspacioLibre(EPersona lista[], int tam)
+int ObtenerEspacioLibre(EPersona* lista, int tam)
 {
     int indice = -1;
     int i;
 
     for(i=0;i<tam;i++)
     {
-        if(lista[i].estado == 0)
+        if((lista + i)->estado == 0)
         {
             indice = i;
             break;
@@ -39,14 +39,14 @@ int ObtenerEspacioLibre(EPersona lista[], int tam)
     return indice;
 }
 
-int BuscarPorDni(EPersona lista[], int tam, int dni)
+int BuscarPorDni(EPersona* lista, int tam, int dni)
 {
     int i;
     int indice = -1;
 
     for(i=0;i<tam;i++)
     {
-        if(lista[i].dni == dni && lista[i].estado == 1)
+        if((lista + i)->dni == dni && (lista + i)->estado == 1)
         {
             indice = i;
             break;
@@ -56,7 +56,7 @@ int BuscarPorDni(EPersona lista[], int tam, int dni)
     return indice;
 }
 
-void agregarPersona(EPersona lista[], int tam)
+void agregarPersona(EPersona* lista, int tam)
 {
     EPersona aux;
     int indice;
@@ -85,7 +85,7 @@ void agregarPersona(EPersona lista[], int tam)
         if(esta != -1)
         {
             printf("La persona ya existe\n");
-            mostrarPersona(lista[esta]);
+            mostrarPersona(lista + esta);
         }
         else
         {
@@ -113,7 +113,7 @@ void agregarPersona(EPersona lista[], int tam)
                 scanf("%d", &aux.edad);
             }
 
-            lista[indice] = aux;
+            *(lista + indice) = aux;
 
 
             printf("----------SE AGREGO UNA PERSONA EXITOSAMENTE--------\n");
@@ -123,7 +123,7 @@ void agregarPersona(EPersona lista[], int tam)
 
 }
 
-void borrarPersona(EPersona lista[], int tam)
+void borrarPersona(EPersona* lista, int tam)
 {
     int dni;
     int esta;
@@ -136,7 +136,7 @@ void borrarPersona(EPersona lista[], int tam)
 
     if(esta != -1)
     {
-        mostrarPersona(lista[esta]);
+        mostrarPersona(lista + esta);
 
         printf("Seguro que desea eliminar a esta persona s/n\n");
         fflush(stdin);
@@ -144,7 +144,7 @@ void borrarPersona(EPersona lista[], int tam)
 
         if(respuesta == 's')
         {
-            lista[esta].estado = 0;
+            (lista + esta)->estado = 0;
             printf("----------SE ELIMINO EXITOSAMENTE---------\n");
         }
         else
@@ -159,7 +159,7 @@ void borrarPersona(EPersona lista[], int tam)
 
 }
 
-void listar(EPersona lista[], int tam)
+void listar(EPersona* lista, int tam)
 {
     EPersona aux;
     int i;
@@ -169,13 +169,13 @@ void listar(EPersona lista[], int tam)
     {
         for(j=i+1;j<tam;j++)
         {
-            if(lista[i].estado == 1 && lista[j].estado == 1)
+            if((lista + i)->estado == 1 && (lista + j)->estado == 1)
             {
-                if(strcmp(lista[i].nombre, lista[j].nombre) == 1)
+                if(strcmp((lista + i)->nombre, (lista + j)->nombre) == 1)
                 {
-                    aux = lista[i];
-                    lista[i] = lista[j];
-                    lista[j] = aux;
+                    aux = *(lista + i);
+                    *(lista + i) = *(lista + j);
+                    *(lista + j) = aux;
                 }
             }
         }
@@ -184,7 +184,7 @@ void listar(EPersona lista[], int tam)
     mostrarPersonas(lista, tam);
 }
 
-void grafico(EPersona lista[], int tam)
+void grafico(EPersona* lista, int tam)
 {
     int edades[] = {0, 0, 0};
     int i;
@@ -193,21 +193,21 @@ void grafico(EPersona lista[], int tam)
 
     for(i=0;i<tam;i++)
     {
-        if(lista[i].estado == 1)
+        if((lista + i)->estado == 1)
         {
-            if(lista[i].edad <= 18)
+            if((lista + i)->edad <= 18)
             {
                 edades[0] ++;
             }
             else
             {
-                if(lista[i].edad > 18 && lista[i].edad <= 35)
+                if((lista + i)->edad > 18 && (lista + i)->edad <= 35)
                 {
                     edades[1] ++;
                 }
                 else
                 {
-                    if(lista[i].edad > 35)
+                    if((lista + i)-> edad > 35)
                     {
                         edades[2] ++;
                     }
@@ -246,24 +246,24 @@ void grafico(EPersona lista[], int tam)
     printf("<18 19-35 >35\n");
 }
 
-void mostrarPersona(EPersona lista)
+void mostrarPersona(EPersona* lista)
 {
-    printf("Nombre: %s\n", lista.nombre);
-    printf("Edad: %d\n", lista.edad);
-    printf("DNI: %d\n\n", lista.dni);
+    printf("Nombre: %s\n", lista->nombre);
+    printf("Edad: %d\n", lista->edad);
+    printf("DNI: %d\n\n", lista->dni);
 
 }
 
-void mostrarPersonas(EPersona lista[], int tam)
+void mostrarPersonas(EPersona* lista, int tam)
 {
     int i;
     int flag = 0;
 
     for(i=0;i<tam;i++)
     {
-        if(lista[i].estado == 1)
+        if((lista + i)->estado == 1)
         {
-            mostrarPersona(lista[i]);
+            mostrarPersona(lista + i);
             flag = 1;
         }
     }
@@ -275,6 +275,38 @@ void mostrarPersonas(EPersona lista[], int tam)
 
 
 }
+
+void archivoPersonas(EPersona* lista, int tam)
+{
+    FILE* pArchivo;
+    int i;
+
+    pArchivo = fopen("miArchivo.txt", "w");
+
+    if(pArchivo != NULL)
+    {
+        for(i=0;i<tam;i++)
+        {
+            if((lista + i)->estado == 1)
+            {
+                fprintf(pArchivo, "Nombre: %s\n", (lista + i)->nombre);
+                fprintf(pArchivo, "DNI: %d\n", (lista + i)->dni);
+                fprintf(pArchivo, "Edad: %d\n",(lista + i)->edad);
+            }
+            fprintf(pArchivo,"\n\n");
+        }
+        fclose(pArchivo);
+
+        printf("----------------SE HA GUARDADO EXITOSAMENTE---------------\n");
+    }
+    else
+    {
+        printf("Imposible abrir el archivo");
+    }
+
+
+}
+
 
 int numerico(char texto[])
 {
