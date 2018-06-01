@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1527876878 source:c:\users\arleyzohan\desktop\tp3 abm\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1527876425 source:c:\users\arleyzohan\desktop\tp3 abm\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1527876910 c:\users\arleyzohan\desktop\tp3 abm\funciones.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
