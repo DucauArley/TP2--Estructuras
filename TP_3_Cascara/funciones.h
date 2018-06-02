@@ -24,14 +24,16 @@ int agregarPelicula(EMovie movie, int);
  *  @param movie la estructura a ser eliminada al archivo
  *  @return retorna 1 o 0 de acuerdo a si pudo eliminar la pelicula o no
  */
-int borrarPelicula(EMovie movie, int);
+void borrarPelicula(EMovie movie, int);
+
+void modificarPelicula(EMovie, int);
+
 
 /**
  *  Genera un archivo html a partir de las peliculas cargadas en el archivo binario.
  *  @param lista la lista de peliculas a ser agregadas en el archivo.
- *  @param nombre el nombre para el archivo.
  */
-void generarPagina(EMovie lista[], char nombre[]);
+void generarPagina(int);
 
 
 int parseDatos(char* nombreArchivo, EMovie* peliculas, int tam);

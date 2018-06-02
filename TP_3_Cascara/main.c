@@ -37,12 +37,15 @@ int main()
                 break;
             case 2:
                 system("cls");
+                borrarPelicula(pelicula, contadorPeliculas);
                 break;
             case 3:
                 system("cls");
-               break;
+                modificarPelicula(pelicula, contadorPeliculas);
+                break;
             case 4:
                 system("cls");
+                generarPagina(contadorPeliculas);
                 break;
             case 5:
                 seguir = 'n';
