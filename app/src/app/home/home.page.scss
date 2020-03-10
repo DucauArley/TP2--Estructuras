@@ -22,8 +22,100 @@
   margin: 0;
 }
 
+//https://www.youtube.com/watch?v=w5PR_d6eiQI
+//ionic expand card
+
+.activo
+{
+  border: 2px solid blue;
+}
+
+.fuente
+{
+  font-size: 30px;
+}
+
+.desactivado
+{
+  background-color: grey;
+}
+
+.twitch
+{
+  background-image: url("../../assets/imagenes/twitch.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.nimotv
+{
+  background-image: url("../../assets/imagenes/nimotv.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.nonolive
+{
+  background-image: url("../../assets/imagenes/nonolive.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.mixer
+{
+  background-image: url("../../assets/imagenes/mixer.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.nuevez
+{
+  background-image: url("../../assets/imagenes/9z.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.coscuarmy
+{
+  background-image: url("../../assets/imagenes/coscuarmy.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.oxeyarmy
+{
+  background-image: url("../../assets/imagenes/oxeyarmy.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.dng
+{
+  background-image: url("../../assets/imagenes/dng.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 #container a {
   text-decoration: none;
+}
+
+ion-content
+{
+  --background: darkgrey;
+}
+
+ion-item
+{
+  --background: darkgrey;
 }
 
 ion-content ion-toolbar {

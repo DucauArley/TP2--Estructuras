@@ -1,102 +1,135 @@
 <ion-header translucent>
-  <ion-toolbar>
+  <ion-toolbar color="tertiary">
     <ion-title>
-      Streamers
+      <h1>Streamers</h1>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen>
-    <ion-card>
-    <ion-card-header>
-      <ion-card-title><h1 style="font-size: 50px;">9z</h1></ion-card-title>
-      <ion-card-content>
-        <ion-card href="https://www.twitch.tv/frankkaster">
-          <ion-card-title><h1 style="font-size: 30px;">Frankkaster</h1></ion-card-title>
-        </ion-card>
-        <ion-card>
-          <ion-card-title><h1 style="font-size: 30px;">Santidead</h1></ion-card-title>
-        </ion-card>
-        <ion-card>
-          <ion-card-title><h1 style="font-size: 30px;">9z Pato</h1></ion-card-title>
-        </ion-card>
-        <ion-card>
-          <ion-card-title><h1 style="font-size: 30px;">Twayko</h1></ion-card-title>
-        </ion-card>
-        <ion-card>
-          <ion-card-title><h1 style="font-size: 30px;">Guishorro</h1></ion-card-title>
-        </ion-card>        
-      </ion-card-content>
+<ion-list style="background-color: darkgray">
+  <ion-item>
+    <ion-label class="fuente">Activar</ion-label>
+    <ion-toggle [(ngModel)]="activos"></ion-toggle>
+  </ion-item>
+</ion-list>
+
+<ion-list class="accordion-list" style="background-color: darkgray" lines="none" detail="false">
+  <ion-card class="nuevez">
+    <ion-card-header tappable (click)="abrir9()">
+      <ion-card-title><h1 style="font-size: 50px; color: white;">
+        <ion-icon slot="start" name="arrow-forward" *ngIf="!abierto9"></ion-icon>
+        <ion-icon slot="start" name="arrow-down" *ngIf="abierto9"></ion-icon>
+        <label *ngIf="abierto9">9z</label></h1></ion-card-title>
     </ion-card-header>
+    <ion-card-content *ngIf="abierto9">
+      <ion-card *ngIf="activos" class="activo twitch" href="https://www.twitch.tv/frankkaster">
+        <ion-card-title><h1 class="fuente" style="color: white;">Frankkaster</h1></ion-card-title>
+      </ion-card>
+      <ion-card class="desactivado">
+        <ion-card-title><h1 class="fuente">9z Pato</h1></ion-card-title>
+      </ion-card>
+      <ion-card *ngIf="!activos" class="desactivado">
+        <ion-card-title><h1 class="fuente">Frankkaster</h1></ion-card-title>
+      </ion-card>
+      <ion-card class="desactivado">
+        <ion-card-title><h1 class="fuente">Knarf</h1></ion-card-title>
+      </ion-card>
+      <ion-card class="desactivado">
+        <ion-card-title><h1 class="fuente">Santidead</h1></ion-card-title>
+      </ion-card>
+      <ion-card class="desactivado">
+        <ion-card-title><h1 class="fuente">Twayko</h1></ion-card-title>
+      </ion-card>
+    </ion-card-content>
   </ion-card>
 
-  <ion-card>
-  <ion-card-header>
-    <ion-card-title><h1 style="font-size: 50px;">Coscu Army</h1></ion-card-title>
-    <ion-card-content>
-      <ion-card>
-        <ion-card-title><h1 style="font-size: 30px;">Coscu</h1></ion-card-title>
-      </ion-card>
-      <ion-card>
-        <ion-card-title><h1 style="font-size: 30px;">Grafo</h1></ion-card-title>
-      </ion-card>
-      <ion-card>
-        <ion-card-title><h1 style="font-size: 30px;">La Chilena</h1></ion-card-title>
-      </ion-card>
-      <ion-card>
-        <ion-card-title><h1 style="font-size: 30px;">Zeko</h1></ion-card-title>
-      </ion-card>
-      <ion-card>
-        <ion-card-title><h1 style="font-size: 30px;">Goncho</h1></ion-card-title>
-      </ion-card>        
-    </ion-card-content>
+<ion-card class="coscuarmy">
+  <ion-card-header tappable (click)="abrirCa()">
+    <ion-card-title><h1 style="font-size: 50px; color: white;">
+      <ion-icon slot="start" name="arrow-forward" *ngIf="!abiertoCa"></ion-icon>
+      <ion-icon slot="start" name="arrow-down" *ngIf="abiertoCa"></ion-icon>
+      <label *ngIf="abiertoCa">Coscu Army</label></h1></ion-card-title>
   </ion-card-header>
+  <ion-card-content *ngIf="abiertoCa">
+    <ion-card *ngIf="activos" class="activo mixer" href="https://mixer.com/Coscu">
+      <ion-card-title><h1 class="fuente" style="color: white;">Coscu</h1></ion-card-title>
+    </ion-card>
+    <ion-card *ngIf="!activos" class="desactivado">
+      <ion-card-title><h1 class="fuente">Coscu</h1></ion-card-title>
+    </ion-card> 
+    <ion-card class="desactivado">
+      <ion-card-title><h1 class="fuente">Goncho</h1></ion-card-title>
+    </ion-card> 
+    <ion-card class="desactivado">
+      <ion-card-title><h1 class="fuente">Grafo</h1></ion-card-title>
+    </ion-card>
+    <ion-card class="desactivado">
+      <ion-card-title><h1 class="fuente">La Chilena</h1></ion-card-title>
+    </ion-card>
+    <ion-card class="desactivado">
+      <ion-card-title><h1 class="fuente">Zeko</h1></ion-card-title>
+    </ion-card>   
+  </ion-card-content>
 </ion-card>
 
-<ion-card>
-  <ion-card-header>
-    <ion-card-title><h1 style="font-size: 50px;">Oxey Army</h1></ion-card-title>
-    <ion-card-content>
-      <ion-card>
-        <ion-card-title><h1 style="font-size: 30px;">Pimpeano</h1></ion-card-title>
-      </ion-card>
-      <ion-card>
-        <ion-card-title><h1 style="font-size: 30px;">Joako</h1></ion-card-title>
-      </ion-card>
-      <ion-card>
-        <ion-card-title><h1 style="font-size: 30px;">Luchi Quinteros</h1></ion-card-title>
-      </ion-card>
-      <ion-card>
-        <ion-card-title><h1 style="font-size: 30px;">Morocho</h1></ion-card-title>
-      </ion-card>
-      <ion-card>
-        <ion-card-title><h1 style="font-size: 30px;">Nano</h1></ion-card-title>
-      </ion-card>        
-    </ion-card-content>
+<ion-card class="oxeyarmy">
+  <ion-card-header tappable (click)="abrirOx()">
+    <ion-card-title><h1 style="font-size: 50px; color: white;">
+      <ion-icon slot="start" name="arrow-forward" *ngIf="!abiertoOx"></ion-icon>
+      <ion-icon slot="start" name="arrow-down" *ngIf="abiertoOx"></ion-icon>
+      <label *ngIf="abiertoOx">Oxey Army</label></h1></ion-card-title>
   </ion-card-header>
+  <ion-card-content *ngIf="abiertoOx">
+    <ion-card *ngIf="activos" class="activo nimotv" href="https://www.nimo.tv/luchi">
+      <ion-card-title><h1 class="fuente">Luchi Quinteros</h1></ion-card-title>
+    </ion-card>
+    <ion-card class="desactivado">
+      <ion-card-title><h1 class="fuente">Joaco</h1></ion-card-title>
+    </ion-card>
+    <ion-card *ngIf="!activos" class="desactivado">
+      <ion-card-title><h1 class="fuente">Luchi Quinteros</h1></ion-card-title>
+    </ion-card>
+    <ion-card class="desactivado">
+      <ion-card-title><h1 class="fuente">Morocho</h1></ion-card-title>
+    </ion-card>
+    <ion-card class="desactivado">
+      <ion-card-title><h1 class="fuente">Nano</h1></ion-card-title>
+    </ion-card>
+    <ion-card class="desactivado">
+      <ion-card-title><h1 class="fuente">Pimpeano</h1></ion-card-title>
+    </ion-card>
+  </ion-card-content>
 </ion-card>
 
-<ion-card>
-  <ion-card-header>
-    <ion-card-title><h1 style="font-size: 50px;">DNG</h1></ion-card-title>
-    <ion-card-content>
-      <ion-card>
-        <ion-card-title><h1 style="font-size: 30px;">Dengue</h1></ion-card-title>
-      </ion-card>
-      <ion-card>
-        <ion-card-title><h1 style="font-size: 30px;">Mike Blunt</h1></ion-card-title>
-      </ion-card>
-      <ion-card>
-        <ion-card-title><h1 style="font-size: 30px;">Okyyy</h1></ion-card-title>
-      </ion-card>
-      <ion-card>
-        <ion-card-title><h1 style="font-size: 30px;">Shaggyveneno</h1></ion-card-title>
-      </ion-card>
-      <ion-card>
-        <ion-card-title><h1 style="font-size: 30px;">ElBrian</h1></ion-card-title>
-      </ion-card>        
-    </ion-card-content>
+<ion-card class="dng">
+  <ion-card-header tappable (click)="abrirDng()">
+    <ion-card-title><h1 style="font-size: 50px; color: white;">
+      <ion-icon slot="start" name="arrow-forward" *ngIf="!abiertoDng"></ion-icon>
+      <ion-icon slot="start" name="arrow-down" *ngIf="abiertoDng"></ion-icon>
+      <label *ngIf="abiertoDng">DNG</label></h1></ion-card-title>
   </ion-card-header>
+  <ion-card-content *ngIf="abiertoDng">
+    <ion-card *ngIf="activos" class="activo nonolive" href="https://www.nonolive.com/eldenguee?__la=es">
+      <ion-card-title><h1 class="fuente" style="color: white;">Dengue</h1></ion-card-title>
+    </ion-card>
+    <ion-card *ngIf="!activos" class="desactivado">
+      <ion-card-title><h1 class="fuente">Dengue</h1></ion-card-title>
+    </ion-card> 
+    <ion-card class="desactivado">
+      <ion-card-title><h1 class="fuente">ElBrian</h1></ion-card-title>
+    </ion-card> 
+    <ion-card class="desactivado">
+      <ion-card-title><h1 class="fuente">Mike Blunt</h1></ion-card-title>
+    </ion-card>
+    <ion-card class="desactivado">
+      <ion-card-title><h1 class="fuente">Okyyy</h1></ion-card-title>
+    </ion-card>
+    <ion-card class="desactivado">
+      <ion-card-title><h1 class="fuente">Shaggyveneno</h1></ion-card-title>
+    </ion-card>
+  </ion-card-content>
 </ion-card>
+</ion-list>
 
 </ion-content>
